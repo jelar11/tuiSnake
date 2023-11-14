@@ -18,7 +18,7 @@ enum Direction
 class Snake
 {
 public:
-    Snake(Point startPos);
+    explicit Snake(Point startPos);
 
     void ChangeDirection(Direction newDir);
     void Update();

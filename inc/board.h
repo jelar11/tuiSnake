@@ -5,7 +5,7 @@
 class Board
 {
 public:
-    Board(WINDOW *window);
+    explicit Board(WINDOW *window);
 
     void Draw();
     void Update();

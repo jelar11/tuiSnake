@@ -4,11 +4,8 @@
 
 #include "color_idx.h"
 
-Snake::Snake(Point startPos)
+Snake::Snake(Point startPos) : pos(startPos), dir(None), tailLength(5)
 {
-    pos = startPos;
-    dir = None;
-    tailLength = 5;
 }
 
 void Snake::ChangeDirection(Direction newDir)

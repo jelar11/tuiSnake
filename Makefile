@@ -15,6 +15,11 @@ ifdef WSL_DISTRO_NAME	# WSL default settings
 	CLANG_FORMAT_CMD := clang-format.exe
 endif
 
+
+CPPCHECK_CMD := cppcheck
+CPPCHECKFLAGS := --enable=style,warning,missingInclude --suppressions-list=./.suppress.cppcheck
+
+
 # Sources (searches recursively inside the source directory)
 SRCS := $(sort $(shell find $(SRC_DIR) \( -name '*.cpp' ! -name '*UI.cpp' ! -name '*_utest.cpp' \)))
 
@@ -90,3 +95,9 @@ clean:
 format:
 	@echo "Running clang-format"
 	@$(CLANG_FORMAT_CMD) -i $$(find $(SRC_DIR) $(INCLUDE_DIR) -name '*.cpp' -o -name '*.h' -o -name '*.hpp' -o -name '*.inl')
+
+.PHONY: cppcheck
+cppcheck:
+	@echo "Running cppcheck"
+	@mkdir -p $(BUILD_DIR)
+	@$(CPPCHECK_CMD) $(CPPCHECKFLAGS) -I$(INCLUDE_DIR) $(SRC_DIR)/*.cpp --cppcheck-build-dir=$(BUILD_DIR)
