@@ -1,0 +1,35 @@
+# Ref: https://releases.llvm.org/14.0.0/tools/clang/docs/ClangFormatStyleOptions.html
+# Editor: https://clang-format-configurator.site/
+---
+BasedOnStyle: Google
+IndentWidth: 4
+Language: Cpp
+# Force pointers to the type for C++.
+#DerivePointerAlignment: false
+#PointerAlignment: Left
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterCaseLabel:         true
+    AfterClass:             true
+    AfterControlStatement:  Always
+    AfterEnum:              true
+    AfterFunction:          true
+    AfterNamespace:         true
+    AfterObjCDeclaration:   true
+    AfterStruct:            true
+    AfterUnion:             true
+    AfterExternBlock:       true
+    BeforeCatch:            true
+    BeforeElse:             true
+    BeforeLambdaBody:       true
+    BeforeWhile:            true
+    IndentBraces:           false
+    SplitEmptyFunction:     true
+    SplitEmptyRecord:       true
+    SplitEmptyNamespace:    true
+ColumnLimit: 120
+AllowShortFunctionsOnASingleLine: None
+AllowShortBlocksOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AccessModifierOffset: -4
+...
